@@ -8,7 +8,7 @@ plain='\033[0m'
 cur_dir=$(pwd)
 
 # check root
-[[ $EUID -ne 0 ]] && echo -e "${red}´íÎó£º${plain} ±ØĞëÊ¹ÓÃrootÓÃ»§ÔËĞĞ´Ë½Å±¾£¡\n" && exit 1
+[[ $EUID -ne 0 ]] && echo -e "${red}é”™è¯¯ï¼š${plain} å¿…é¡»ä½¿ç”¨rootç”¨æˆ·è¿è¡Œæ­¤è„šæœ¬ï¼\n" && exit 1
 
 # check os
 if [[ -f /etc/redhat-release ]]; then
@@ -26,7 +26,7 @@ elif cat /proc/version | grep -Eqi "ubuntu"; then
 elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
 else
-    echo -e "${red}Î´¼ì²âµ½ÏµÍ³°æ±¾£¬ÇëÁªÏµ½Å±¾×÷Õß£¡${plain}\n" && exit 1
+    echo -e "${red}æœªæ£€æµ‹åˆ°ç³»ç»Ÿç‰ˆæœ¬ï¼Œè¯·è”ç³»è„šæœ¬ä½œè€…ï¼${plain}\n" && exit 1
 fi
 
 arch=$(arch)
@@ -39,13 +39,13 @@ elif [[ $arch == "s390x" ]]; then
     arch="s390x"
 else
     arch="64"
-    echo -e "${red}¼ì²â¼Ü¹¹Ê§°Ü£¬Ê¹ÓÃÄ¬ÈÏ¼Ü¹¹: ${arch}${plain}"
+    echo -e "${red}æ£€æµ‹æ¶æ„å¤±è´¥ï¼Œä½¿ç”¨é»˜è®¤æ¶æ„: ${arch}${plain}"
 fi
 
-echo "¼Ü¹¹: ${arch}"
+echo "æ¶æ„: ${arch}"
 
 if [ "$(getconf WORD_BIT)" != '32' ] && [ "$(getconf LONG_BIT)" != '64' ] ; then
-    echo "±¾Èí¼ş²»Ö§³Ö 32 Î»ÏµÍ³(x86)£¬ÇëÊ¹ÓÃ 64 Î»ÏµÍ³(x86_64)£¬Èç¹û¼ì²âÓĞÎó£¬ÇëÁªÏµ×÷Õß"
+    echo "æœ¬è½¯ä»¶ä¸æ”¯æŒ 32 ä½ç³»ç»Ÿ(x86)ï¼Œè¯·ä½¿ç”¨ 64 ä½ç³»ç»Ÿ(x86_64)ï¼Œå¦‚æœæ£€æµ‹æœ‰è¯¯ï¼Œè¯·è”ç³»ä½œè€…"
     exit 2
 fi
 
@@ -61,15 +61,15 @@ fi
 
 if [[ x"${release}" == x"centos" ]]; then
     if [[ ${os_version} -le 6 ]]; then
-        echo -e "${red}ÇëÊ¹ÓÃ CentOS 7 »ò¸ü¸ß°æ±¾µÄÏµÍ³£¡${plain}\n" && exit 1
+        echo -e "${red}è¯·ä½¿ç”¨ CentOS 7 æˆ–æ›´é«˜ç‰ˆæœ¬çš„ç³»ç»Ÿï¼${plain}\n" && exit 1
     fi
 elif [[ x"${release}" == x"ubuntu" ]]; then
     if [[ ${os_version} -lt 16 ]]; then
-        echo -e "${red}ÇëÊ¹ÓÃ Ubuntu 16 »ò¸ü¸ß°æ±¾µÄÏµÍ³£¡${plain}\n" && exit 1
+        echo -e "${red}è¯·ä½¿ç”¨ Ubuntu 16 æˆ–æ›´é«˜ç‰ˆæœ¬çš„ç³»ç»Ÿï¼${plain}\n" && exit 1
     fi
 elif [[ x"${release}" == x"debian" ]]; then
     if [[ ${os_version} -lt 8 ]]; then
-        echo -e "${red}ÇëÊ¹ÓÃ Debian 8 »ò¸ü¸ß°æ±¾µÄÏµÍ³£¡${plain}\n" && exit 1
+        echo -e "${red}è¯·ä½¿ç”¨ Debian 8 æˆ–æ›´é«˜ç‰ˆæœ¬çš„ç³»ç»Ÿï¼${plain}\n" && exit 1
     fi
 fi
 
@@ -111,13 +111,13 @@ install_XrayR() {
     if  [ $# == 0 ] ;then
         last_version=$(curl -Ls "https://api.github.com/repos/XrayR-project/XrayR/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         if [[ ! -n "$last_version" ]]; then
-            echo -e "${red}¼ì²â XrayR °æ±¾Ê§°Ü£¬¿ÉÄÜÊÇ³¬³ö Github API ÏŞÖÆ£¬ÇëÉÔºóÔÙÊÔ£¬»òÊÖ¶¯Ö¸¶¨ XrayR °æ±¾°²×°${plain}"
+            echo -e "${red}æ£€æµ‹ XrayR ç‰ˆæœ¬å¤±è´¥ï¼Œå¯èƒ½æ˜¯è¶…å‡º Github API é™åˆ¶ï¼Œè¯·ç¨åå†è¯•ï¼Œæˆ–æ‰‹åŠ¨æŒ‡å®š XrayR ç‰ˆæœ¬å®‰è£…${plain}"
             exit 1
         fi
-        echo -e "¼ì²âµ½ XrayR ×îĞÂ°æ±¾£º${last_version}£¬¿ªÊ¼°²×°"
+        echo -e "æ£€æµ‹åˆ° XrayR æœ€æ–°ç‰ˆæœ¬ï¼š${last_version}ï¼Œå¼€å§‹å®‰è£…"
         wget -q -N --no-check-certificate -O /usr/local/XrayR/XrayR-linux.zip https://github.com/XrayR-project/XrayR/releases/download/${last_version}/XrayR-linux-${arch}.zip
         if [[ $? -ne 0 ]]; then
-            echo -e "${red}ÏÂÔØ XrayR Ê§°Ü£¬ÇëÈ·±£ÄãµÄ·şÎñÆ÷ÄÜ¹»ÏÂÔØ Github µÄÎÄ¼ş${plain}"
+            echo -e "${red}ä¸‹è½½ XrayR å¤±è´¥ï¼Œè¯·ç¡®ä¿ä½ çš„æœåŠ¡å™¨èƒ½å¤Ÿä¸‹è½½ Github çš„æ–‡ä»¶${plain}"
             exit 1
         fi
     else
@@ -127,10 +127,10 @@ install_XrayR() {
 	    last_version="v"$1
 	fi
         url="https://github.com/XrayR-project/XrayR/releases/download/${last_version}/XrayR-linux-${arch}.zip"
-        echo -e "¿ªÊ¼°²×° XrayR ${last_version}"
+        echo -e "å¼€å§‹å®‰è£… XrayR ${last_version}"
         wget -q -N --no-check-certificate -O /usr/local/XrayR/XrayR-linux.zip ${url}
         if [[ $? -ne 0 ]]; then
-            echo -e "${red}ÏÂÔØ XrayR ${last_version} Ê§°Ü£¬ÇëÈ·±£´Ë°æ±¾´æÔÚ${plain}"
+            echo -e "${red}ä¸‹è½½ XrayR ${last_version} å¤±è´¥ï¼Œè¯·ç¡®ä¿æ­¤ç‰ˆæœ¬å­˜åœ¨${plain}"
             exit 1
         fi
     fi
@@ -146,23 +146,23 @@ install_XrayR() {
     systemctl daemon-reload
     systemctl stop XrayR
     systemctl enable XrayR
-    echo -e "${green}XrayR ${last_version}${plain} °²×°Íê³É£¬ÒÑÉèÖÃ¿ª»ú×ÔÆô"
+    echo -e "${green}XrayR ${last_version}${plain} å®‰è£…å®Œæˆï¼Œå·²è®¾ç½®å¼€æœºè‡ªå¯"
     cp geoip.dat /etc/XrayR/
     cp geosite.dat /etc/XrayR/ 
 
     if [[ ! -f /etc/XrayR/config.yml ]]; then
         cp config.yml /etc/XrayR/
         echo -e ""
-        echo -e "È«ĞÂ°²×°£¬ÇëÏÈ²Î¿´½Ì³Ì£ºhttps://github.com/XrayR-project/XrayR£¬ÅäÖÃ±ØÒªµÄÄÚÈİ"
+        echo -e "å…¨æ–°å®‰è£…ï¼Œè¯·å…ˆå‚çœ‹æ•™ç¨‹ï¼šhttps://github.com/XrayR-project/XrayRï¼Œé…ç½®å¿…è¦çš„å†…å®¹"
     else
         systemctl start XrayR
         sleep 2
         check_status
         echo -e ""
         if [[ $? == 0 ]]; then
-            echo -e "${green}XrayR ÖØÆô³É¹¦${plain}"
+            echo -e "${green}XrayR é‡å¯æˆåŠŸ${plain}"
         else
-            echo -e "${red}XrayR ¿ÉÄÜÆô¶¯Ê§°Ü£¬ÇëÉÔºóÊ¹ÓÃ XrayR log ²é¿´ÈÕÖ¾ĞÅÏ¢£¬ÈôÎŞ·¨Æô¶¯£¬Ôò¿ÉÄÜ¸ü¸ÄÁËÅäÖÃ¸ñÊ½£¬ÇëÇ°Íù wiki ²é¿´£ºhttps://github.com/XrayR-project/XrayR/wiki${plain}"
+            echo -e "${red}XrayR å¯èƒ½å¯åŠ¨å¤±è´¥ï¼Œè¯·ç¨åä½¿ç”¨ XrayR log æŸ¥çœ‹æ—¥å¿—ä¿¡æ¯ï¼Œè‹¥æ— æ³•å¯åŠ¨ï¼Œåˆ™å¯èƒ½æ›´æ”¹äº†é…ç½®æ ¼å¼ï¼Œè¯·å‰å¾€ wiki æŸ¥çœ‹ï¼šhttps://github.com/XrayR-project/XrayR/wiki${plain}"
         fi
     fi
 
@@ -183,31 +183,31 @@ install_XrayR() {
     fi
     curl -o /usr/bin/XrayR -Ls https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/XrayR.sh
     chmod +x /usr/bin/XrayR
-    ln -s /usr/bin/XrayR /usr/bin/xrayr # Ğ¡Ğ´¼æÈİ
+    ln -s /usr/bin/XrayR /usr/bin/xrayr # å°å†™å…¼å®¹
     chmod +x /usr/bin/xrayr
     cd $cur_dir
     rm -f install.sh
     echo -e ""
-    echo "XrayR ¹ÜÀí½Å±¾Ê¹ÓÃ·½·¨ (¼æÈİÊ¹ÓÃxrayrÖ´ĞĞ£¬´óĞ¡Ğ´²»Ãô¸Ğ): "
+    echo "XrayR ç®¡ç†è„šæœ¬ä½¿ç”¨æ–¹æ³• (å…¼å®¹ä½¿ç”¨xrayræ‰§è¡Œï¼Œå¤§å°å†™ä¸æ•æ„Ÿ): "
     echo "------------------------------------------"
-    echo "XrayR                    - ÏÔÊ¾¹ÜÀí²Ëµ¥ (¹¦ÄÜ¸ü¶à)"
-    echo "XrayR start              - Æô¶¯ XrayR"
-    echo "XrayR stop               - Í£Ö¹ XrayR"
-    echo "XrayR restart            - ÖØÆô XrayR"
-    echo "XrayR status             - ²é¿´ XrayR ×´Ì¬"
-    echo "XrayR enable             - ÉèÖÃ XrayR ¿ª»ú×ÔÆô"
-    echo "XrayR disable            - È¡Ïû XrayR ¿ª»ú×ÔÆô"
-    echo "XrayR log                - ²é¿´ XrayR ÈÕÖ¾"
-    echo "XrayR update             - ¸üĞÂ XrayR"
-    echo "XrayR update x.x.x       - ¸üĞÂ XrayR Ö¸¶¨°æ±¾"
-    echo "XrayR config             - ÏÔÊ¾ÅäÖÃÎÄ¼şÄÚÈİ"
-    echo "XrayR install            - °²×° XrayR"
-    echo "XrayR uninstall          - Ğ¶ÔØ XrayR"
-    echo "XrayR version            - ²é¿´ XrayR °æ±¾"
+    echo "XrayR                    - æ˜¾ç¤ºç®¡ç†èœå• (åŠŸèƒ½æ›´å¤š)"
+    echo "XrayR start              - å¯åŠ¨ XrayR"
+    echo "XrayR stop               - åœæ­¢ XrayR"
+    echo "XrayR restart            - é‡å¯ XrayR"
+    echo "XrayR status             - æŸ¥çœ‹ XrayR çŠ¶æ€"
+    echo "XrayR enable             - è®¾ç½® XrayR å¼€æœºè‡ªå¯"
+    echo "XrayR disable            - å–æ¶ˆ XrayR å¼€æœºè‡ªå¯"
+    echo "XrayR log                - æŸ¥çœ‹ XrayR æ—¥å¿—"
+    echo "XrayR update             - æ›´æ–° XrayR"
+    echo "XrayR update x.x.x       - æ›´æ–° XrayR æŒ‡å®šç‰ˆæœ¬"
+    echo "XrayR config             - æ˜¾ç¤ºé…ç½®æ–‡ä»¶å†…å®¹"
+    echo "XrayR install            - å®‰è£… XrayR"
+    echo "XrayR uninstall          - å¸è½½ XrayR"
+    echo "XrayR version            - æŸ¥çœ‹ XrayR ç‰ˆæœ¬"
     echo "------------------------------------------"
 }
 
-echo -e "${green}¿ªÊ¼°²×°${plain}"
+echo -e "${green}å¼€å§‹å®‰è£…${plain}"
 install_base
 # install_acme
 install_XrayR $1
