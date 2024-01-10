@@ -8,7 +8,7 @@ set -o pipefail
 
 # Place at:
 # ↓编辑自己Shell脚本链接↓
-# curl https://raw.githubusercontent.com/yulewang/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /usr/local/bin/cf-ddns.sh && chmod +x /usr/local/bin/cf-ddns.sh
+# curl https://raw.githubusercontent.com/aoop-free/App/main/Proxy/ddns.sh > /usr/local/bin/cf-ddns.sh && chmod +x /usr/local/bin/cf-ddns.sh
 # run `crontab -e` and add next line:
 # */1 * * * * /usr/local/bin/cf-ddns.sh >/dev/null 2>&1
 # or you need log:
