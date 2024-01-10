@@ -7,7 +7,7 @@ set -o pipefail
 # Can retrieve cloudflare Domain id and list zone's, because, lazy
 
 # Place at:
-# ↓编辑自己Shell脚本链接↓
+# ↓编辑使用Shell脚本↓
 # curl https://raw.githubusercontent.com/aoop-free/App/main/Proxy/ddns.sh > /usr/local/bin/cf-ddns.sh && chmod +x /usr/local/bin/cf-ddns.sh
 # run `crontab -e` and add next line:
 # */1 * * * * /usr/local/bin/cf-ddns.sh >/dev/null 2>&1
