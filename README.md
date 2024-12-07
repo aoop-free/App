@@ -5,7 +5,7 @@ wget https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/swap.
 ```
 ### TCP窗口调优
 ```
-wget https://github.com/aoop-free/App/blob/main/Proxy/tools.sh -O tools.sh && bash tools.sh
+wget https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/tools.sh -O tools.sh && bash tools.sh
 ```
 ### realm 一键转发脚本
 ```
