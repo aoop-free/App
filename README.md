@@ -15,6 +15,9 @@ wget https://github.com/aoop-free/App/blob/main/Proxy/tools.sh -O tools.sh && ba
 ```
 wget --no-check-certificate -qO InstallNET.sh 'https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh' && chmod a+x InstallNET.sh && bash InstallNET.sh -debian 12 -pwd 'WeitBoPeSrE'
 ```
+### realm 一键转发脚本
+```
+wget -N https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/realm.sh && chmod +x realm.sh && ./realm.sh
 ### 基于cloudflare的ddns脚本
 ```
 curl https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/cf-v4-ddns.sh > /root/cf-v4-ddns.sh && chmod +x /root/cf-v4-ddns.sh
