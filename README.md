@@ -9,5 +9,5 @@ wget https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/swap.
 ```
 ### warp虚拟内存
 ```
-curl https://raw.githubusercontent.com/aipeach/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /root/cf-v4-ddns.sh && chmod +x /root/cf-v4-ddns.sh
+curl https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/ddns.sh > /root/cf-v4-ddns.sh && chmod +x /root/cf-v4-ddns.sh
 ```
