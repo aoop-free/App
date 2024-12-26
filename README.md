@@ -11,6 +11,10 @@ wget https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/tools
 ```
 wget -N https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/realm.sh && chmod +x realm.sh && ./realm.sh
 ```
+### acme证书申请一键脚本
+```
+wget -N --no-check-certificate https://raw.githubusercontent.com/aoop-free/App/refs/heads/main/Proxy/acme.sh && bash acme.sh
+```
 ### 史上最强dd脚本
 ```
 wget --no-check-certificate -qO InstallNET.sh 'https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh' && chmod a+x InstallNET.sh && bash InstallNET.sh -debian 12 -pwd 'WeitBoPeSrE'
