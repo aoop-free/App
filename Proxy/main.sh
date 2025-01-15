@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Author: SuperManito
 ## Modified: 2025-01-04
-## 借鉴更新脚本 bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+## 借鉴更新脚本: bash <(curl -sSL https://linuxmirrors.cn/main.sh)
 ## 更换软件源: 国内鸡专用
 
 ## 定制方法
